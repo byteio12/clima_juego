@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Clima Extremo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="contenedor">
+  <h1>Simulador de Clima Extremo</h1>
+  <div id="resultado">Presiona el botón para generar un clima extremo.</div>
+  <button onclick="generarClima()">Generar clima extremo</button>
+</div>
+
+<script>
+function generarClima() {
+  const temperatura = Math.floor(Math.random() * 10) - 9;
+
+  const nubosidad = Math.floor(Math.random() * 36) + 65;
+  const densidad = Math.floor(Math.random() * 36) + 65;
+  const lluvia = Math.floor(Math.random() * 36) + 65;
+  const nieve = Math.floor(Math.random() * 36) + 65;
+
+  let resultado = `Temperatura: ${temperatura} °C\n`;
+  resultado += `Nubosidad: ${nubosidad}%\n`;
+  resultado += `Densidad de nubes: ${densidad}%\n`;
+  resultado += `Lluvia: ${lluvia}%\n`;
+  resultado += `Nieve: ${nieve}%\n`;
+
+  if (temperatura < -5) {
+    resultado += "Clima: Ventisca intensa con nieve y viento helado ❄️🌨️💨";
+  } else if (temperatura >= -5 && temperatura <= 0) {
+    resultado += "Clima: Tormenta fría con lluvia helada y aguanieve 🌧️❄️";
+  } else {
+    resultado += "Clima: Nublado extremo con condiciones inestables ☁️⚡";
+  }
+
+  document.getElementById('resultado').textContent = resultado;
+}
+</script>
+
+</body>
+</html>
